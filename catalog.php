@@ -8,7 +8,7 @@
 		<title></title>
 		<meta name="keywords" content="" />
 		<meta name="description" content="" />
-		<link rel="stylesheet" href="../css/style.css" type="text/css" media="screen, projection" />
+		<link rel="stylesheet" href="css/style.css" type="text/css" media="screen, projection" />
 	</head>
 
 	<body>
@@ -30,9 +30,10 @@
 
 				<div id="container">
 					<div id="content">
-						<strong>Content:</strong>
+						<strong>Categorie:</strong>
 						<p>
-							Tante belle cose.
+							<!-- ELENCO CATEGORIE - RISULTATO QUERY -->
+							
 						</p>
 					</div><!-- #content-->
 				</div><!-- #container-->
