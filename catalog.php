@@ -33,7 +33,19 @@
 						<strong>Categorie:</strong>
 						<p>
 							<!-- ELENCO CATEGORIE - RISULTATO QUERY -->
+							<?php
 							
+							include_once ("include/functions.php");
+							
+							$query = ("SELECT * FROM categorie");
+							
+							$connection = connect();
+							$result = dbReaderQuery($query);
+							
+							foreach ($result as $key => $value) {
+							echo "<p>".$value['nome'];
+							}
+							?>
 						</p>
 					</div><!-- #content-->
 				</div><!-- #container-->

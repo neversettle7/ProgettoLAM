@@ -12,29 +12,48 @@ function connect($query) {
 	// Connessione al database
 
 	//function db_connect() {
-		//include_once ("config.inc.php");
-		$connection = mysql_connect($db_host, $db_user, $db_pass) or die(mysql_error());
+	//include_once ("config.inc.php");
+	$connection = mysql_connect($db_host, $db_user, $db_pass) or die(mysql_error());
 
-		echo $query;
+	//echo "<p>Collegato con successo.</p>";
 
-		mysql_select_db($db_name) or die(mysql_error());
-		
-		if (mysql_query($query, $connection))
-			echo "query avvenuta con successo.";
-		else "query venuta male: ".mysql_error();
-		
-		if(isset($query))
-			echo "connessione avvenuta con query";
-		else
-			echo "connessione avvenuta senza query";
-		
-		return $connection;
+	echo $query;
+
+	mysql_select_db($db_name) or die(mysql_error());
+
+	if (mysql_query($query, $connection))
+		echo "Query avvenuta con successo.";
+	else
+		"Query venuta male: " . mysql_error();
+
+	return $connection;
 	//}
 
 }
 
 function db_edit($query) {
 	echo $query;
-	mysql_query($query, $connection);	
+	mysql_query($query, $connection);
+}
+
+function dbReaderQuery($query) {
+	
+	//echo "Sono la funzione dbReaderQuery";
+	//echo "<p>Query ricevuta: " . $query;
+	$result = mysql_query($query);
+	//echo "<p>Result: ".$result;
+	$toReturn = array();
+	$i = 0;
+	if ($result !== false) {
+		while ($data = mysql_fetch_array($result, MYSQL_ASSOC)) {
+			foreach ($data as $key => $value) {
+				$toReturn[$i][$key] = $value;
+				//echo "<p>Elemento dell'array numero ".$i." di valore: ".$value;
+			}
+			$i++;
+		}
+		return $toReturn;
+	} else
+		return false;
 }
 ?>

@@ -43,7 +43,7 @@ $mysql_query = ("INSERT INTO utenti (nome, cognome, indirizzo, username, passwor
 if (isset($mysql_query)) {
 	$connection = connect($mysql_query);
 } else
-	$connection = connect();
+	echo "Errore acquisizione dati.";
 
 echo "<p></p><p></p>";
 echo "<p>Fine script</p>";
