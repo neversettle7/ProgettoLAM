@@ -16,7 +16,7 @@
 			<!--<section id="middle">
 			<div id="container">!-->
 			<div id="content">
-				<form id="register" method="post" action="product-result.php">
+				<form enctype="multipart/form-data" id="insert-product" method="post" action="product-result.php">
 					<h2>Inserimento prodotti</h2>
 					<p>
 						Compila tutti i campi della pagina per inserire un prodotto nel database.
@@ -51,31 +51,41 @@
 						<p class="guidelines" id="guide_6">
 							<small>Inserire il prezzo del prodotto.</small>
 						</p>
+						<label class="category" for="categoria">Categoria</label>
 						<div>
-							<input name="categoria" class="element text medium" type="" size="5" />
+							
+							<!-- Questo script permette di selezionare la categoria
+							di appartenenza del prodotto scegliendola nella lista
+							(popolata dinamicamente durante l'escecuzione di questo
+							script) di categorie inserite nel database -->
+							
+							<?php
+
+							include_once ("../include/functions.php");
+
+							$query = "SELECT * FROM categorie";
+
+							$connection = connect();
+							$result = dbReaderQuery($query);
+
+							foreach ($result as $key => $value) {
+								echo '<p><input name="categoria" type="radio" value="' . $value['nome'] . '"/>  ' . $value['nome'];
+							}
+							?>
+							
 						</div>
 						<p class="guidelines" id="guide_7">
-							<label class="category" for="categoria">Categoria</label>
-							<div>
-								<?php
-
-								include_once ("../include/functions.php");
-
-								$query = "SELECT * FROM categorie";
-
-								$connection = connect();
-								$result = dbReaderQuery($query);
-
-								foreach ($result as $key => $value) {
-									echo '<p><input type="radio" value="' . $value['nome'] . '">  ' . $value['nome'];
-								}
-								?>
-							</div>
-							<p class="guidelines" id="guide_3">
-								<small>Scegliere la categoria di appartenenza del prodotto.</small>
-							</p>
-							<input type="hidden" name="form_id" value="register" />
-							<input id="saveForm" class="button_text" type="submit" name="submit" value="Inserisci" />
+							<small>Scegliere la categoria di appartenenza del prodotto.</small>
+						</p>
+						<label class="photo" for="foto">Foto</label>
+						<div>
+							<input type="file" name="photo" />
+						</div>
+						<p class="guidelines" id="guide_7">
+							<small>Inserire una foto per il prodotto.</small>
+						</p>
+						<input type="hidden" name="form_id" value="register" />
+						<input id="saveForm" class="button_text" type="submit" name="submit" value="Inserisci" />
 					</ul>
 				</form>
 			</div>
