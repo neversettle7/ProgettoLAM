@@ -82,7 +82,7 @@
 							<input type="file" name="photo" />
 						</div>
 						<p class="guidelines" id="guide_7">
-							<small>Inserire una foto per il prodotto.</small>
+							<small>Inserire una foto per il prodotto (solo jpg e png con dimensione inferiore ai 3500kB ammessi).</small>
 						</p>
 						<input type="hidden" name="form_id" value="register" />
 						<input id="saveForm" class="button_text" type="submit" name="submit" value="Inserisci" />

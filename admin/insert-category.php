@@ -16,7 +16,7 @@
 			<!--<section id="middle">
 			<div id="container">!-->
 			<div id="content">
-				<form id="register" method="post" action="category-result.php">
+				<form enctype="multipart/form-data" id="register" method="post" action="category-result.php">
 					<h2>Inserimento categorie</h2>
 					<p>
 						Compila tutti i campi della pagina per inserire una categoria nel database.
@@ -36,6 +36,13 @@
 						</div>
 						<p class="guidelines" id="guide_2">
 							<small>Inserire la descrizione della categoria.</small>
+						</p>
+						<label class="photo" for="foto">Foto</label>
+						<div>
+							<input type="file" name="photo" />
+						</div>
+						<p class="guidelines" id="guide_3">
+							<small>Inserire una foto per la categoria (solo jpg e png con dimensione inferiore ai 3500kB ammessi).</small>
 						</p>
 						<input type="hidden" name="form_id" value="register" />
 						<input id="saveForm" class="button_text" type="submit" name="submit" value="Inserisci" />

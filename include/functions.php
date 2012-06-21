@@ -2,6 +2,9 @@
 
 // Libreria per le funzioni esterne
 
+
+// Questa funzione serve per connettersi al db e effettuare operazioni
+
 function connect($query) {
 
 	$db_host = "localhost";
@@ -31,13 +34,19 @@ function connect($query) {
 
 }
 
+
+// Questa funzione serve per effettuare operazioni nel db
+
 function db_edit($query) {
 	echo $query;
 	mysql_query($query, $connection);
 }
 
+
+// Questa funzione serve per effettuare letture nel db
+ 
 function dbReaderQuery($query) {
-	
+
 	//echo "Sono la funzione dbReaderQuery";
 	//echo "<p>Query ricevuta: " . $query;
 	$result = mysql_query($query);
@@ -56,4 +65,16 @@ function dbReaderQuery($query) {
 	} else
 		return false;
 }
+
+
+// Questa funzione separa l'estensione del file dal suo nome e la ritorna
+
+function findext($nomefile) {
+	$nomefile = strtolower($nomefile);
+	$ext = split("[/\\.]", $nomefile);
+	$n = count($ext) - 1;
+	$ext = $ext[$n];
+	return $ext;
+}
+
 ?>
