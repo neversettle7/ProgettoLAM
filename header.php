@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<meta charset="utf-8" />
+		<meta charset="ISO-8859-1" />
 		<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 		<title></title>
 		<meta name="keywords" content="" />

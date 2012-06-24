@@ -30,20 +30,74 @@
 
 				<div id="container">
 					<div id="content">
-						<strong>Categorie:</strong>
 						<p>
 							<!-- ELENCO CATEGORIE - RISULTATO QUERY -->
 							<?php
-							
+
 							include_once ("include/functions.php");
-							
-							$query = ("SELECT * FROM categorie");
-							
-							$connection = connect();
-							$result = dbReaderQuery($query);
-							
-							foreach ($result as $key => $value) {
-							echo "<p>".$value['nome'];
+
+							$cat = $_GET['cat'];
+
+							if (isset($cat)) {
+
+								/*
+								 * Codice per visualizzare una particolare categoria
+								 * Troviamo il nome della categoria partendo dal solo id
+								 * che era contenuto nella variabile GET dell'URL
+								 */
+
+								$query_cat = ("SELECT * FROM categorie WHERE id = " . $cat);
+
+								// Check - print_r($query_cat);
+
+								$connection = connect();
+								$result = dbReaderQuery($query_cat);
+
+								foreach ($result as $key => $value) {
+									$nome_cat = $value['nome'];
+									// Check - print_r($nome_cat);
+									echo "<strong>Elenco dei prodotti disponibili nella categoria: " . $nome_cat . "</strong>";
+
+								}
+
+								/*
+								 * Questo codice permette invece di recuperare la lista dei
+								 * prodotti presenti nella categoria selezionata precedentemente
+								 * e disporli in una tabella ordinata
+								 */
+
+								$query = ('SELECT * FROM prodotti WHERE categoria = "' . $nome_cat . '"');
+
+								// Check - print_r($query);
+
+								$connection = connect();
+								$result = dbReaderQuery($query);
+
+								foreach ($result as $key => $value) {
+									if ($i == 0) {
+										echo '<table border="1" bordercolor="#000000" style="background-color:#FFFFFF" width="700" cellpadding="3" cellspacing="3">';
+									}
+									$i++;
+									if (($i % 2) == 1 || $i == 0) {
+										echo "<tr>";
+									}
+									echo "<td>" . $value['nome'] . "</td>";
+									if (($i % 2) == 0) {
+										echo "</tr>";
+									}
+								} echo "</table>";
+							} else {
+								echo "<strong>Elenco delle categorie:</strong>";
+
+								// Codice per visualizzare la lista delle categorie da cui scegliere
+								$query = ("SELECT * FROM categorie");
+
+								$connection = connect();
+								$result = dbReaderQuery($query);
+
+								foreach ($result as $key => $value) {
+									echo "<p><a href=catalog.php?cat=" . $value['id'] . ">" . $value['nome'] . "</a>";
+								}
 							}
 							?>
 						</p>
