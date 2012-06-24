@@ -48,7 +48,7 @@ $target = $target.$b.$ext;
 
 // Query di inserimento del prodotto e delle sue informazioni
 
-$query = ("INSERT INTO prodotti (nome, descrizione, quantita, prezzo, categoria, image) VALUES ('$nome', '$descrizione', '$quantita', '$prezzo', '$categoria', '$photo')");
+$query = ("INSERT INTO prodotti (nome, descrizione, quantita, prezzo, categoria, image) VALUES ('$nome', '$descrizione', '$quantita', '$prezzo', '$categoria', '$nomefile')");
 echo "<p>Fine script.</p>";
 
 // Ci connettiamo al database ed eseguiamo la query

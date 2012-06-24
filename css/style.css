@@ -33,6 +33,14 @@ img {
 input {
 	vertical-align: middle;
 }
+#catalog-images {
+	max-width: 350px;
+	max-height: 200px;
+}
+#table-column {
+	width: 350px;
+	text-align: center;
+}
 #wrapper {
 	padding-top: 20px;
 	width: 960px;

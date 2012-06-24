@@ -75,17 +75,21 @@
 
 								foreach ($result as $key => $value) {
 									if ($i == 0) {
-										echo '<table border="1" bordercolor="#000000" style="background-color:#FFFFFF" width="700" cellpadding="3" cellspacing="3">';
+										echo '<table border="0" bordercolor="#000000" style="background-color: transparent" width="700" cellpadding="0" cellspacing="0">';
 									}
 									$i++;
 									if (($i % 2) == 1 || $i == 0) {
 										echo "<tr>";
 									}
-									echo "<td>" . $value['nome'] . "</td>";
+									echo '<td><div id="table-column"';
+									echo '<p><a href=products.php?id=' . $value['id'] . '><img id="catalog-images" src="images/products/' . $value['image'] . '" />';
+									echo "<p><strong>" .$value['nome'] . '</a></strong>';
+									echo "</td>";
 									if (($i % 2) == 0) {
 										echo "</tr>";
 									}
 								} echo "</table>";
+								echo '<p><p><a href="catalog.php">Torna alla pagina delle categorie.</a></p>';
 							} else {
 								echo "<strong>Elenco delle categorie:</strong>";
 
@@ -96,8 +100,24 @@
 								$result = dbReaderQuery($query);
 
 								foreach ($result as $key => $value) {
-									echo "<p><a href=catalog.php?cat=" . $value['id'] . ">" . $value['nome'] . "</a>";
-								}
+									if ($j == 0) {
+										echo '<table border="0" bordercolor="#000000" style="background-color: transparent" width="700" cellpadding="0" cellspacing="0">';
+									}
+									$j++;
+									if (($i % 2) == 1 || $j == 0) {
+										echo "<tr>";
+									}
+									echo '<td><div id="table-column"';
+									echo '<p><a href=catalog.php?cat=' . $value['id'] . '><img id="catalog-images" src="images/categories/' . $value['image'] . '" />';
+									echo "<p><strong>";
+									echo $value['nome'];
+									echo "</a></strong>";
+									echo "<br><small>" . $value['descrizione']."</small>";
+									echo "</td>";
+									if (($j % 2) == 0) {
+										echo "</tr>";
+									}
+								} echo "</table>";
 							}
 							?>
 						</p>
