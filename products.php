@@ -33,14 +33,32 @@
 						<p>
 							<!-- Pagina relativa al prodotto selezionato -->
 							<?php
-							
+
 							include_once ("include/functions.php");
-							
+
 							$id = $_GET['id'];
-							
-							if(isset($id)){
-								
-								
+
+							if (isset($id)) {
+
+								$query = ('SELECT * FROM prodotti WHERE id = "' . $id . '"');
+
+								$connection = connect();
+								$result = dbReaderQuery($query);
+
+								foreach ($result as $key => $value) {
+
+									echo '<p><h1>' . $value['nome'] . '</h1>';
+									echo '<p><img id="product-images" src="images/products/' . $value['image'] . '" />';
+									echo '<p><p><p><strong>Prezzo: </strong>'.$value['prezzo'].' euro';
+									echo '<p><p><strong>Descrizione del prodotto:</strong> ';
+									echo '<p>'.$value['descrizione'];
+									if ($value['quantita'] > 0) {
+										echo "<p><strong>Prodotto disponibile.<br></strong>";
+										echo '<a href="purchase.php">Acquistalo subito!</a></p>';
+									} else
+										echo "<p>Prodotto non disponibile.</p>";
+								}
+
 							}
 							?>
 						</p>

@@ -37,6 +37,9 @@ input {
 	max-width: 350px;
 	max-height: 200px;
 }
+#product-images {
+	float:right;
+}
 #table-column {
 	width: 350px;
 	text-align: center;

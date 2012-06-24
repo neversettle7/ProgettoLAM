@@ -10,6 +10,6 @@
 	</head>
 
 	<body>
-		<center>2012 © - Giovanni Dini - Progetto di Linguaggi e Applicazioni Multimediali</center>
+		<center>2012 - Copyright Giovanni Dini - Progetto di Linguaggi e Applicazioni Multimediali</center>
 	</body>
 </html>
