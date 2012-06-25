@@ -54,7 +54,7 @@ function dbReaderQuery($query) {
 		while ($data = mysql_fetch_array($result, MYSQL_ASSOC)) {
 			foreach ($data as $key => $value) {
 				$toReturn[$i][$key] = $value;
-				//echo "<p>Elemento dell'array numero ".$i." di valore: ".$value;
+				// echo "<p>Elemento dell'array numero ".$i." di valore: ".$value;
 			}
 			$i++;
 		}

@@ -38,11 +38,18 @@ input {
 	max-height: 200px;
 }
 #product-images {
-	float:right;
+	float: right;
 }
 #table-column {
 	width: 350px;
 	text-align: center;
+}
+#cart-table {
+	text-align: center;
+}
+.right {
+	position: absolute;
+	right: 30px;
 }
 #wrapper {
 	padding-top: 20px;
@@ -90,7 +97,7 @@ input {
 	padding: 10px;
 	float: right;
 	/*padding-top: 20px;
-	padding-left: 270px;*/
+	 padding-left: 270px;*/
 	background: #87e0fd;
 	width: 720px;
 }

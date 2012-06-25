@@ -44,13 +44,11 @@
 							$action = $_GET['action'];
 							// Check - echo "<p>Action: " . $action;
 
+							// Otteniamo la quantità di oggetti ordinati in caso di update
+							//$qty = $_GET['qty'];
+
 							// Assegniamo alla variabile cart il contenuto del carrello nella sessione
 							$cart = $_SESSION['cart'];
-
-							// Se l'id del prodotto non eiste, restituiamo un errore
-							/*if ($id && !productExists($id)) {
-							 die("Error. Product Doesn't Exist");
-							 }*/
 
 							switch($action) {
 								case 'add' :
@@ -62,7 +60,7 @@
 									} else {
 										$cart = $id;
 									}
-									echo "<p>Ecco il carrello attuale: " . $cart;
+									//Check - echo "<p>Ecco il carrello attuale: " . $cart;
 									break;
 
 								case 'remove' :
@@ -89,7 +87,17 @@
 
 								case 'update' :
 									// Istruzioni per l'update
-									echo "update";
+									echo "Eseguiamo l'update delle quantità del prodotto " . $id . " a " . $qty . " nel carrello.";
+									if ($cart) {
+										$items = explode(',', $cart);
+										$contents = array();
+										foreach ($items as $item) {
+											$contents[$item] = (isset($contents[$item])) ? $contents[$item] + 1 : 1;
+										}
+										
+										foreach ($contents as $id => $qty){}
+									}
+									print_r($contents);
 									break;
 
 								case 'display' :
@@ -99,36 +107,87 @@
 
 								default :
 									echo "<p>Nessuna azione.</p>";
+									//Check - echo "<p>Contenuto del carrello: ".$_SESSION['cart'];
 									break;
 							}
 
-							if ($cart) {
-								// Mostriamo il contenuto del carrello in una tabella
-								$total = 0;
-								$output[] = '<table>';
-								foreach ($contents as $id => $qty) {
-									$sql = 'SELECT * FROM prodotti WHERE id = ' . $id;
-									$result = $db -> query($sql);
-									$row = $result -> fetch();
-									extract($row);
-									$output[] = '<tr>';
-									$output[] = '<td><a href="cart.php?action=delete&id=' . $id . '" class="r">Remove</a></td>';
-									$output[] = '<td>' . $title . ' by ' . $author . '</td>';
-									$output[] = '<td>&pound;' . $price . '</td>';
-									$output[] = '<td><input type="text" name="qty' . $id . '" value="' . $qty . '" size="3" maxlength="3" /></td>';
-									$output[] = '<td>&pound;' . ($price * $qty) . '</td>';
-									$total += $price * $qty;
-									$output[] = '</tr>';
-								}
-								$output[] = '</table>';
-								$output[] = '<p>Grand total: &pound;' . $total . '</p>';
-
-							} else {
-								echo "<p>Il tuo carrello è vuoto.</p>";
-							}
-
-							echo "<p>Fine ciclo.";
 							$_SESSION['cart'] = $cart;
+							// Check - echo "<p>Contenuto del carrello: ".$cart;
+
+							if ($cart) {
+								// Esplodiamo l'array per avere un array $contents con elementi singoli
+								// magari presenti in quantità maggiori di 1 ed evitare duplicati
+								$cart = $_SESSION['cart'];
+								if ($cart) {
+									$items = explode(',', $cart);
+									$contents = array();
+									foreach ($items as $item) {
+										$contents[$item] = (isset($contents[$item])) ? $contents[$item] + 1 : 1;
+									}
+									// Check - print_r($contents);
+
+									$connection = @connect();
+									$i = 0;
+
+									echo '<form id="register" method="post" action="cart.php">';
+									echo '<table border="1" id="cart-table" bordercolor="#999999" style=" background-color: transparent" cellpadding="2" cellspacing="2" width="700">';
+
+									// Andiamo ad operare sul db. Passiamo la lista $content al foreach
+									// in modo da iterare e andare a cercare sul db solo i prodotti effettivamente
+									// presenti nella nostra lista d'acquisto
+									foreach ($contents as $id => $qty) {
+										// Check - print_r($contents);
+										$query = 'SELECT * FROM prodotti WHERE id = ' . $id;
+										$result = dbReaderQuery($query);
+										// Check - print_r($result);
+										// Check - print_r($result[$i]['prezzo']);
+										// Check - echo "<p>ID: ".$id;
+										// Check - echo "<p>Quantita': ".$qty;
+										// Check - echo "<p>Prezzo: ".$result[$i]['prezzo'];
+										// Check - echo $query;
+										echo '<p><tr>';
+										echo '<td><a href="cart.php?action=remove&id=' . $id . '" class="r">Elimina</a></td>';
+										echo '<td>' . $result[$i]['nome'] . '</td>';
+										echo '<td>&euro;' . $result[$i]['prezzo'] . '</td>';
+										echo '<td><input type="text" name="qty' . $id . '" value="' . $qty . '" size="3" maxlength="3" /></td>';
+										echo '<td>&euro;' . ($result[$i]['prezzo'] * $qty) . '</td>';
+										$total += $result[$i]['prezzo'] * $qty;
+										echo '</tr>';
+									}
+									echo '</table>';
+									echo '<input type="submit" value="Aggiorna" class="right">';
+									echo '<p>Totale: &euro;' . $total . '</p>';
+
+								}
+							}
+							/*
+							 *
+							 $query = ('SELECT * FROM prodotti');
+
+							 $connection = connect();
+							 $result = dbReaderQuery($query);
+
+							 $total = 0;
+							 echo '<table>';
+							 foreach ($result as $key => $value) {
+							 //extract($row);
+							 echo '<tr>';
+							 echo '<td><a href="cart.php?action=delete&id=' . $result['id'] . '" class="r">Remove</a></td>';
+							 echo '<td>' . $result['nome'] . '</td>';
+							 echo '<td>&pound;' . $result['prezzo'] . '</td>';
+							 echo '<td><input type="text" name="qty' . $result['id'] . '" value="' . $qty . '" size="3" maxlength="3" /></td>';
+							 echo '<td>&pound;' . ($result['prezzo'] * $qty) . '</td>';
+							 $total += $result['prezzo'] * $qty;
+							 echo '</tr>';
+							 }
+							 echo '</table>';
+							 echo '<p>Grand total: &pound;' . $total . '</p>';
+
+							 } else {
+							 echo "<p>Il tuo carrello è vuoto.</p>";
+							 }*/
+
+							//echo "<p>Contenuto carrello: " . $cart;
 							?>
 						</p>
 					</div><!-- #content-->
@@ -145,10 +204,10 @@
 			<footer id="footer">
 				<?
 				include ("footer.php");
-							?>
-							</footer><!-- #footer -->
+				?>
+			</footer><!-- #footer -->
 
-					</div><!-- #wrapper -->
+		</div><!-- #wrapper -->
 
 	</body>
 </html>
