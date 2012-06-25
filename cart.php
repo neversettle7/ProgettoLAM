@@ -36,89 +36,100 @@
 
 							include_once ("include/functions.php");
 
+							// Otteniamo l'id del prodotto dall'URL
+							$id = $_GET['id'];
+							// Check - echo "<p>ID: " . $id;
+
+							// Otteniamo l'azione dall'URL
+							$action = $_GET['action'];
+							// Check - echo "<p>Action: " . $action;
+
+							// Assegniamo alla variabile cart il contenuto del carrello nella sessione
 							$cart = $_SESSION['cart'];
-							if (@isset($_GET['action'])) {
-								$action = $_GET['action'];
 
-								switch ($action) {
-									case 'add' :
-										if ($cart) {
-											$cart .= ',' . $_GET['id'];
-										} else {
-											$cart = $_GET['id'];
-										}
-										break;
+							// Se l'id del prodotto non eiste, restituiamo un errore
+							/*if ($id && !productExists($id)) {
+							 die("Error. Product Doesn't Exist");
+							 }*/
 
-									case 'delete' :
-										if ($cart) {
-											$items = @explode(',', $cart);
-											$acquisto = '';
-											foreach ($items as $prodotto) {
-												if ($_GET['id'] != $prodotto) {
-													if ($acquisto != '') {
-														$acquisto .= ',' . $prodotto;
-													} else {
-														$acquisto = $prodotto;
-													}
-												}
-											}
-											$cart = $acquisto;
-										}
-										break;
+							switch($action) {
+								case 'add' :
+									// Istruzioni per l'aggiunta di prodotti al carrello
+									echo "<p>Aggiungo il prodotto " . $id . " al carrello.";
+									if (($cart)) {
+										$newcart = $cart . ',' . $id;
+										$cart = $newcart;
+									} else {
+										$cart = $id;
+									}
+									echo "<p>Ecco il carrello attuale: " . $cart;
+									break;
 
-									case 'update' :
-										if ($cart) {
-											$acquisto = '';
-											foreach ($_POST as $key => $value) {
-												if (@stristr($key, 'quantita')) {
-													$id = @str_replace('quantita', '', $key);
-													$prodotti = ($acquisto != '') ? @explode(',', $acquisto) : @explode(',', $cart);
-													$acquisto = '';
-
-													foreach ($prodotti as $prodotto) {
-														if ($id != $prodotto) {
-															if ($acquisto != '') {
-																$acquisto .= ',' . $prodotto;
-															} else {
-																$acquisto = $prodotto;
-															}
-														}
-													}
-
-													for ($i = 1; $i <= $value; $i++) {
-														if ($acquisto != '') {
-															$acquisto .= ',' . $id;
-														} else {
-															$acquisto = $id;
-														}
-													}
+								case 'remove' :
+									// Istruzioni per la rimozione di un prodotto dal carrello
+									echo "<p>Rimuovo il prodotto " . $id . " dal carrello.";
+									if ($cart) {
+										// Esplodiamo il carrello per separare gli elementi
+										$items = explode(',', $cart);
+										$newcart = '';
+										foreach ($items as $item) {
+											// Cancelliamo l'elemento se il suo id è uguale
+											// a quello cercato
+											if ($id != $item) {
+												if ($newcart != '') {
+													$newcart .= ',' . $item;
+												} else {
+													$newcart = $item;
 												}
 											}
 										}
-										$cart = $acquisto;
-										break;
-								}
+										$cart = $newcart;
+									}
+									break;
+
+								case 'update' :
+									// Istruzioni per l'update
+									echo "update";
+									break;
+
+								case 'display' :
+									// Istruzioni per la semplice visualizzazione del contenuto - Check?
+									echo "Contenuto attuale del carrello: " . $_SESSION['cart'];
+									break;
+
+								default :
+									echo "<p>Nessuna azione.</p>";
+									break;
 							}
 
+							if ($cart) {
+								// Mostriamo il contenuto del carrello in una tabella
+								$total = 0;
+								$output[] = '<table>';
+								foreach ($contents as $id => $qty) {
+									$sql = 'SELECT * FROM prodotti WHERE id = ' . $id;
+									$result = $db -> query($sql);
+									$row = $result -> fetch();
+									extract($row);
+									$output[] = '<tr>';
+									$output[] = '<td><a href="cart.php?action=delete&id=' . $id . '" class="r">Remove</a></td>';
+									$output[] = '<td>' . $title . ' by ' . $author . '</td>';
+									$output[] = '<td>&pound;' . $price . '</td>';
+									$output[] = '<td><input type="text" name="qty' . $id . '" value="' . $qty . '" size="3" maxlength="3" /></td>';
+									$output[] = '<td>&pound;' . ($price * $qty) . '</td>';
+									$total += $price * $qty;
+									$output[] = '</tr>';
+								}
+								$output[] = '</table>';
+								$output[] = '<p>Grand total: &pound;' . $total . '</p>';
+
+							} else {
+								echo "<p>Il tuo carrello è vuoto.</p>";
+							}
+
+							echo "<p>Fine ciclo.";
 							$_SESSION['cart'] = $cart;
-						?>
-
-							<html>
-								<head>
-									<title>Un cart della spesa con PHP</title>
-								</head>
-								<body>
-									<h1>cart in PHP</h1>
-
-									<?php
-									echo writeShoppingCart();
-									?>
-
-									<h1>Controlla il numero dei prodotti</h1>
-
-									<?php
-									echo showCart();
-									?>
+							?>
 						</p>
 					</div><!-- #content-->
 				</div><!-- #container-->
@@ -134,10 +145,10 @@
 			<footer id="footer">
 				<?
 				include ("footer.php");
-				?>
-			</footer><!-- #footer -->
+							?>
+							</footer><!-- #footer -->
 
-		</div><!-- #wrapper -->
+					</div><!-- #wrapper -->
 
 	</body>
 </html>

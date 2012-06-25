@@ -14,13 +14,12 @@
 	<body>
 		<img src='include/ecomLOGO.png' align="top-left">
 		<?php
-			if ($_SESSION['login'] == 1) {
-				echo 'Benvenuto/a ' . $_SESSION['username'];
-				echo ' | fai <a href="logout.php">logout</a>';
-			} else {
-				echo 'Benvenuto/a! Fai <a href="login.php">login</a> o <a href="register.php">registrati</a>.';
-			}
+		if ($_SESSION['login'] == 1) {
+			echo 'Benvenuto/a ' . $_SESSION['username'];
+			echo ' | fai <a href="logout.php">logout</a>';
+		} else {
+			echo 'Benvenuto/a! Fai <a href="login.php">login</a> o <a href="register.php">registrati</a>.';
+		}
 		?>
-
 	</body>
 </html>
