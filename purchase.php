@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<meta charset="iso-8859-1" />
+		<meta charset="ISO-8859-1" />
 		<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 		<title></title>
 		<meta name="keywords" content="" />
@@ -44,25 +44,20 @@
 
 								$connection = connect();
 								$result = dbReaderQuery($query);
+								
+								
 
-								foreach ($result as $key => $value) {
-
-									echo '<p><h1>' . $value['nome'] . '</h1>';
-									echo '<p><img id="product-images" src="images/products/' . $value['image'] . '" />';
-									echo '<p><p><p><strong>Prezzo: </strong>'.$value['prezzo'].' euro';
-									echo '<p><p><strong>Descrizione del prodotto:</strong> ';
-									echo '<p>'.$value['descrizione'];
-									if ($value['quantita'] > 0) {
-										echo "<p><strong>Prodotto disponibile.<br></strong>";
-										if(isset($_SESSION['login']))
-											echo '<a href="cart.php?action=add&id='.$value['id'].'">Aggiungi al carrello!</a></p>';
-										else
-											echo '<a href="login.php">Fai login per procedere all\'acquisto.</a>';
-									} else
-										echo "<p>Prodotto non disponibile.</p>";
-								}
-							}
-							echo '<p><a href="catalog.php"><strong>Torna al catalogo</a></p></strong>';
+								/*foreach ($result as $key => $value) {
+									if (empty($_SESSION['cart'])) {
+										$_SESSION['cart'] = $value['id'];
+										print_r($_SESSION['cart']);
+									} else {
+										$_SESSION['cart'] = $_SESSION['cart'] . ',' . $value['id'];
+										print_r($_SESSION['cart']);
+									}
+								} echo '<p>Elemento aggiunto al carrello.</p>';*/
+							} else
+								echo '<p>Sei arrivato a questa pagina per sbaglio? Torna alla <a href="index.php">home</a>.';
 							?>
 						</p>
 					</div><!-- #content-->

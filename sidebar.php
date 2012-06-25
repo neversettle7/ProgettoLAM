@@ -29,7 +29,7 @@
 				</li>
 				<?php
 					if ($_SESSION['admin'] == 1) {
-						echo '<li> <a href="/backend.php" title="Backend">Backend</a></li>';
+						echo '<li> <a href="admin/admin.php" title="Pannello di controllo">Pannello di controllo admin</a></li>';
 					}
 				?>
 			</ul>
