@@ -11,10 +11,18 @@ header, nav, section, article, aside, footer {
 	border-radius: 5px;
 }
 body {
-	font: 12px/18px Verdana, Tahoma, Arial, sans-serif;
+	font-family: Verdana, Georgia, Trebuchet;
+	background-color: #fff;
+	color: #444;
+	text-decoration: none;
+	word-spacing: normal;
+	text-align: left;
+	letter-spacing: 0;
+	line-height: 20px;
+	font-size: 12px;
 	width: 100%;
-	background-image: url("back.png");
-	background-repeat: repeat-x, repeat;
+	background-image: url("../images/back.png");
+	background-repeat: repeat;
 }
 a {
 	color: blue;
@@ -32,6 +40,15 @@ img {
 }
 input {
 	vertical-align: middle;
+}
+.justify {
+	text-align: justify;
+	text-justify: newspaper;
+}
+#content {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
 }
 #catalog-images {
 	max-width: 350px;
@@ -179,4 +196,54 @@ input {
 #navmenu ul li a:hover, #navmenu ul li a.current {
 	color: #fff;
 	background: transparent url(../css/images/navmenu_over.gif) no-repeat top center;
+}
+/* Sidebar menu
+ -----------------------------------------------------------------------------*/
+#sidemenu {
+	width: 200px;
+	border-style: solid solid none solid;
+	border-color: #06ABE0;
+	border-width: 0px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	margin: 0px;
+}
+
+#sidemenu li a {
+	color: #07ACE0;
+	height: 32px;
+	voice-family: "\"}\"";
+	voice-family: inherit;
+	height: 24px;
+	text-decoration: none;
+	border: solid 1px;
+	border-color: #06ABE0;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+#sidemenu li a:link, #sidemenu li a:visited {
+
+	display: block;
+	background: #87E0FD;
+	padding: 8px 0 0 10px;
+}
+
+#sidemenu li a:hover {
+	color: #000000;
+	background: #0AADE1;
+	padding: 8px 0 0 20px;
+}
+
+#sidemenu li a:active {
+	color: #FFFFFF;
+	background: url(../css/images/menu1.gif) 0 -64px;
+	padding: 8px 0 0 10px;
+}
+#sidemenu ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
 }

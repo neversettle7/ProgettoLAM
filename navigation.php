@@ -16,7 +16,7 @@
 					<a href="index.php" title="css menus" class="current">Home</a>
 				</li>
 				<li>
-					<a href="where.php" title="css menus">Dove siamo</a>
+					<a href="catalog.php" title="css menus">Catalogo</a>
 				</li>
 				<li>
 					<a href="mission.php" title="css menus">Azienda</a>
