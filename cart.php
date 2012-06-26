@@ -35,6 +35,10 @@
 							<?
 
 							include_once ("include/functions.php");
+							
+							if(empty($_SESSION['cart'])){
+								echo "<p>Il tuo carrello è vuoto. </p>";
+							}
 
 							// Otteniamo l'id del prodotto dall'URL
 							$id = $_GET['id'];
@@ -86,6 +90,7 @@
 									break;
 
 								case 'update' :
+									// Istruzioni per l'aggiornamento delle quantità nel carrello
 									if ($cart) {
 										$newcart = '';
 										foreach ($_POST as $key => $value) {
@@ -121,8 +126,8 @@
 									break;
 
 								default :
-									echo "<p>Nessuna azione.</p>";
-									//Check - echo "<p>Contenuto del carrello: ".$_SESSION['cart'];
+									// Check - echo "<p>Nessuna azione.</p>";
+									// Check - echo "<p>Contenuto del carrello: ".$_SESSION['cart'];
 									break;
 							}
 

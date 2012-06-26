@@ -8,7 +8,6 @@
 		<meta name="description" content="" />
 		<link rel="stylesheet" href="css/style.css" type="text/css" media="screen, projection" />
 	</head>
-	<?php session_start(); ?>
 
 	<body>
 
