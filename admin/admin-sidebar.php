@@ -22,7 +22,7 @@
 					<a href="category-list.php" title="Servizi">Gestione categorie</a>
 				</li>
 				<li>
-					<a href="../catalog.php" title="Catalogo">Catalogo</a>
+					<a href="user-list.php" title="Catalogo">Gestione utenti</a>
 				</li>
 				<li>
 					<a href="../contact.php" title="Contattaci">Contattaci</a>

@@ -53,7 +53,7 @@
 					echo "<p><strong>";
 					echo $value['nome'];
 					echo "</strong></td>";
-					echo "<td><br><small>" . $value['descrizione'] . "</small></td>";
+					echo "<td><small>" . $value['descrizione'] . "</small></td>";
 					echo '<td><a href="category-edit.php?id=' . $value['id'] . '">Modifica</a>';
 					echo '<td><a href="category-delete.php?id=' . $value['id'] . '">Cancella</a>';
 					echo "</td>";

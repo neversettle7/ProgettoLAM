@@ -43,7 +43,6 @@ if (isset($id)) {
 	echo $query;
 	$connection = connect($query);
 
-	// Ci connettiamo al database ed eseguiamo la query
 } else {
 	echo "Nessun prodotto da modificare. Errore.";
 }

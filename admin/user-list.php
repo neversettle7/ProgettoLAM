@@ -26,8 +26,8 @@
 				 * Troviamo il nome della categoria partendo dal solo id
 				 * che era contenuto nella variabile GET dell'URL
 				 */
-				 
-				 echo "<p><strong>Elenco degli utenti:</strong></p>";
+
+				echo "<p><strong>Elenco degli utenti:</strong></p>";
 
 				$connection = connect();
 				$result = dbReaderQuery($query_cat);
@@ -44,18 +44,25 @@
 						echo '<tr>';
 						echo '<td><div id="table-column">';
 						echo '<strong>Nome</strong></td>';
-						echo '<td><strong>Descrizione:</strong></td>';
+						echo '<td><strong>Username:</strong></td>';
+						echo '<td><strong>E\' admin?</strong></td>';
 						echo '</tr>';
 					}
 					$j++;
 					echo "<tr>";
 					echo '<td><div id="table-column"';
 					echo "<p>";
-					echo $value['nome'];
+					echo $value['nome'] . ' ';
+					echo $value['cognome'];
 					echo "</td>";
-					echo "<td><br><small>" . $value['descrizione'] . "</small></td>";
-					echo '<td><a href="category-edit.php?id=' . $value['id'] . '">Modifica</a>';
-					echo '<td><a href="category-delete.php?id=' . $value['id'] . '">Cancella</a>';
+					echo "<td>" . $value['username'] . "</td>";
+					echo '<td>';
+					if ($value['admin'] == 1)
+					echo "<strong>Si</strong>";
+					else echo "No";
+					echo '</td>';
+					echo '<td><a href="user-edit.php?id=' . $value['id'] . '">Modifica</a>';
+					echo '<td><a href="user-delete.php?id=' . $value['id'] . '">Cancella</a>';
 					echo "</td>";
 					echo "</tr>";
 
