@@ -13,13 +13,13 @@
 		<div id="menu">
 			<ul>
 				<li>
-					<a href="../index.php" title="Home">Home</a>
+					<a href="admin.php" title="Home">Admin home</a>
 				</li>
 				<li>
-					<a href="../mission.php" title="Chi siamo">Chi siamo</a>
+					<a href="product-list.php" title="Chi siamo">Gestione prodotti</a>
 				</li>
 				<li>
-					<a href="../services.php" title="Servizi">Servizi</a>
+					<a href="category-list.php" title="Servizi">Gestione categorie</a>
 				</li>
 				<li>
 					<a href="../catalog.php" title="Catalogo">Catalogo</a>
