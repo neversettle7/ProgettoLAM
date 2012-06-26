@@ -33,7 +33,7 @@
 						$nome = $value['nome'];
 					}
 				} else {
-					echo "Nessun prodotto selezionato, imbecille. ";
+					echo "Nessuna categoria selezionata. ";
 				}
 				?>
 

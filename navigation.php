@@ -19,13 +19,13 @@
 					<a href="catalog.php" title="css menus">Catalogo</a>
 				</li>
 				<li>
-					<a href="mission.php" title="css menus">Azienda</a>
+					<a href="mission.php" title="css menus">Chi siamo</a>
 				</li>
 				<li>
 					<a href="contact.php" title="css menus">Contatti</a>
 				</li>
 				<li>
-					<a href="partners.php" title="css menus">Partners</a>
+					<a href="services.php" title="css menus">Servizi</a>
 				</li>
 				<li>
 					<a href="cart.php" title="css menus">Carrello</a>

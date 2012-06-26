@@ -1,5 +1,3 @@
-<?php session_start(); ?>
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
@@ -10,7 +8,7 @@
 		<meta name="description" content="" />
 		<link rel="stylesheet" href="css/style.css" type="text/css" media="screen, projection" />
 	</head>
-
+	<?php session_start(); ?>
 	<body>
 		<img src='include/ecomLOGO.png' align="top-left">
 		<?php

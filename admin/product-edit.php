@@ -35,7 +35,7 @@
 									$prezzo = $value['prezzo'];
 								}
 							} else {
-								echo "Nessun prodotto selezionato, imbecille. ";
+								echo "Nessun prodotto selezionato. ";
 							}
 					?>
 					

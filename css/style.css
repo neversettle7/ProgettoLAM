@@ -36,7 +36,13 @@ p {
 	margin: 0 0 18px
 }
 img {
+	padding: 1px;
+	border: 1px solid #021a40;
+	background-color: #FFF;
+}
+#header img {
 	border: none;
+	background: transparent;
 }
 input {
 	vertical-align: middle;
