@@ -20,6 +20,11 @@
 				<?php
 
 				include_once ("../include/functions.php");
+				
+				echo '<p><a href="product-insert.php">';
+				echo '<strong>Crea un nuovo prodotto</strong>';
+				echo '</a><p></p></p>';
+				
 
 				$cat = $_GET['cat'];
 
@@ -106,6 +111,7 @@
 					} echo "</table>";
 
 				}
+				
 				?>
 			</div>
 

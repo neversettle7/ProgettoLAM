@@ -186,7 +186,7 @@
 										echo "<p><strong>Attenzione: </strong>La quantità di uno dei prodotti richiesti non era disponibile. Abbiamo sistemato automaticamente la quantità";
 										echo " ordinata al massimo che possiamo fornire.</p>";
 									}
-									echo '<form id="purchase" action="purchase.php">';
+									echo '<form id="purchase" method="post" action="fake-bank.php?total='.$total.'">';
 									echo '<p><p><input type="submit" value="Procedi all\'acquisto"></form>';
 
 								}

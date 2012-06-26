@@ -24,9 +24,6 @@
 				<li>
 					<a href="user-list.php" title="Catalogo">Gestione utenti</a>
 				</li>
-				<li>
-					<a href="../contact.php" title="Contattaci">Contattaci</a>
-				</li>
 			</ul>
 		</div>
 	</body>

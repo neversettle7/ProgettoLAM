@@ -20,6 +20,10 @@
 				<?php
 
 				include_once ("../include/functions.php");
+				
+				echo '<p><a href="category-insert.php">';
+				echo '<strong>Crea una nuova categoria</strong>';
+				echo '</a><p></p></p>';
 
 				/*
 				 * Codice per visualizzare una particolare categoria
