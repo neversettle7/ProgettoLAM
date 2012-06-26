@@ -84,18 +84,23 @@
 									echo '<td>&euro;' . ($result[$i]['prezzo'] * $qty) . '</td>';
 									$total += $result[$i]['prezzo'] * $qty;
 									echo '</tr>';
-									
+
 									// Aggiorniamo le quantità disponibili del prodotto
 									$new_qty = $result[$i]['quantita'] - $qty;
+
+									// Se il prodotto è disponibile nella quantità desiderata operiamo sul db
+									// e memorizziamo la quantità del prodotto rimasta in magazzino
 									if ($new_qty >= 0) {
 										// Questa query serve per aggiornare la quantità disponibili del prodotto
 										$query_update = ('UPDATE prodotti SET quantita="' . $new_qty . '" WHERE id="' . $id . '"');
-										db_edit($query_update,$connection);
+										db_edit($query_update, $connection);
 										// Questa query serve per inserire la vendita nella relativa tabella del db
 										$query_add = ("INSERT INTO vendite (idutente, idprodotto, totale) VALUES ('$idutente', '$id', '$total')");
-										print_r($query_add);
-										db_edit($query_add,$connection);
-									} else {
+										// Check - print_r($query_add);
+										db_edit($query_add, $connection);
+									}
+									// Se il prodotto non è disponibile lo comunichiamo all'utente e NON operiamo sul db
+									else {
 										echo "<p>Spiacenti, il prodotto " . $result[$i]['nome'] . " non è disponibile nella quantità desiderata.";
 										echo "Sono disponibili solo " . $result[$i]['quantita'] . " del prodotto desiderato.";
 									}
@@ -106,8 +111,8 @@
 
 							// Effettuiamo la query nel database
 							/*$query_add = ("INSERT INTO vendite (idutente, idprodotto, totale) VALUES ('$idutente', '$idprodotto', '$total')");
-							print_r($query_add);
-							connect($query_add);*/
+							 print_r($query_add);
+							 connect($query_add);*/
 
 							echo '<p>Sei arrivato a questa pagina per sbaglio? Torna alla <a href="index.php">home</a>.';
 							?>

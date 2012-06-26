@@ -86,18 +86,33 @@
 									break;
 
 								case 'update' :
-									// Istruzioni per l'update
-									echo "Eseguiamo l'update delle quantitÃ  del prodotto " . $id . " a " . $qty . " nel carrello.";
 									if ($cart) {
-										$items = explode(',', $cart);
-										$contents = array();
-										foreach ($items as $item) {
-											$contents[$item] = (isset($contents[$item])) ? $contents[$item] + 1 : 1;
+										$newcart = '';
+										foreach ($_POST as $key => $value) {
+											if (stristr($key, 'qty')) {
+												$id = str_replace('qty', '', $key);
+												$items = ($newcart != '') ? explode(',', $newcart) : explode(',', $cart);
+												$newcart = '';
+												foreach ($items as $item) {
+													if ($id != $item) {
+														if ($newcart != '') {
+															$newcart .= ',' . $item;
+														} else {
+															$newcart = $item;
+														}
+													}
+												}
+												for ($i = 1; $i <= $value; $i++) {
+													if ($newcart != '') {
+														$newcart .= ',' . $id;
+													} else {
+														$newcart = $id;
+													}
+												}
+											}
 										}
-										
-										foreach ($contents as $id => $qty){}
 									}
-									print_r($contents);
+									$cart = $newcart;
 									break;
 
 								case 'display' :
@@ -129,7 +144,7 @@
 									$connection = @connect();
 									$i = 0;
 
-									echo '<form id="update-cart" method="post" action="cart.php">';
+									echo '<form id="update-cart" method="post" action="cart.php?action=update">';
 									echo '<table border="1" id="cart-table" bordercolor="#999999" style=" background-color: transparent" cellpadding="2" cellspacing="2" width="700">';
 
 									// Andiamo ad operare sul db. Passiamo la lista $content al foreach
@@ -149,6 +164,11 @@
 										echo '<td><a href="cart.php?action=remove&id=' . $id . '" class="r">Elimina</a></td>';
 										echo '<td>' . $result[$i]['nome'] . '</td>';
 										echo '<td>&euro;' . $result[$i]['prezzo'] . '</td>';
+										if ($qty > $result[$i]['quantita']) {
+											//echo "ciao.";
+											$error = 1;
+											$qty = $result[$i]['quantita'];
+										}
 										echo '<td><input type="text" name="qty' . $id . '" value="' . $qty . '" size="3" maxlength="3" /></td>';
 										echo '<td>&euro;' . ($result[$i]['prezzo'] * $qty) . '</td>';
 										$total += $result[$i]['prezzo'] * $qty;
@@ -156,7 +176,11 @@
 									}
 									echo '</table>';
 									echo '<input type="submit" value="Aggiorna" class="right"></form>';
-									echo '<p>Totale: &euro;' . $total . '</p>';
+									echo '<p><p><strong>Totale:</strong> &euro;' . $total . '</p></p>';
+									if ($error == 1) {
+										echo "<p><strong>Attenzione: </strong>La quantità di uno dei prodotti richiesti non era disponibile. Abbiamo sistemato automaticamente la quantità";
+										echo " ordinata al massimo che possiamo fornire.</p>";
+									}
 									echo '<form id="purchase" action="purchase.php">';
 									echo '<p><p><input type="submit" value="Procedi all\'acquisto"></form>';
 
