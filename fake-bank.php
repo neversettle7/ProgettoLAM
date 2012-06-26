@@ -65,6 +65,12 @@
 				echo '<form id="purchase" method="post" action="cart.php">';
 				echo '<p><p><input type="submit" value="No, torna indietro"></form>';
 				?>
+				<p></p>
+				<p>
+					<small>A questo punto ci dovrebbe essere il reale controllo da parte della banca.
+						Per ovvi motivi questo è sintetizzato nella scelta tra i pulsanti di cui sopra.
+						Premendo "sì" si procede al pagamento. Premendo "no" si torna indietro al carrello.</small>
+				</p>
 			</div>
 			<div id="footer">
 				Copyright © Site name, 2012

@@ -5,7 +5,7 @@
 	<head>
 		<meta charset="ISO-8859-1" />
 		<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-		<title></title>
+		<title>Il mio carrello</title>
 		<meta name="keywords" content="" />
 		<meta name="description" content="" />
 		<link rel="stylesheet" href="css/style.css" type="text/css" media="screen, projection" />
@@ -35,9 +35,10 @@
 							<?
 
 							include_once ("include/functions.php");
-							
-							if(empty($_SESSION['cart'])){
+
+							if (empty($_SESSION['cart'])) {
 								echo "<p>Il tuo carrello è vuoto. </p>";
+								echo 'Ricordati di effettuare il <a href="login.php">login</a>!';
 							}
 
 							// Otteniamo l'id del prodotto dall'URL
@@ -186,11 +187,13 @@
 										echo "<p><strong>Attenzione: </strong>La quantità di uno dei prodotti richiesti non era disponibile. Abbiamo sistemato automaticamente la quantità";
 										echo " ordinata al massimo che possiamo fornire.</p>";
 									}
-									echo '<form id="purchase" method="post" action="fake-bank.php?total='.$total.'">';
+									echo '<form id="purchase" method="post" action="fake-bank.php?total=' . $total . '">';
 									echo '<p><p><input type="submit" value="Procedi all\'acquisto"></form>';
 
 								}
 							}
+							echo '<p></p><p>Torna alla <a href="index.php">pagina iniziale</a>';
+							echo ' o al <a href="catalog.php">catalogo</a>.</p>';
 							?>
 						</p>
 					</div><!-- #content-->
