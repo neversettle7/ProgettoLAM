@@ -129,7 +129,7 @@
 									$connection = @connect();
 									$i = 0;
 
-									echo '<form id="register" method="post" action="cart.php">';
+									echo '<form id="update-cart" method="post" action="cart.php">';
 									echo '<table border="1" id="cart-table" bordercolor="#999999" style=" background-color: transparent" cellpadding="2" cellspacing="2" width="700">';
 
 									// Andiamo ad operare sul db. Passiamo la lista $content al foreach
@@ -155,39 +155,13 @@
 										echo '</tr>';
 									}
 									echo '</table>';
-									echo '<input type="submit" value="Aggiorna" class="right">';
+									echo '<input type="submit" value="Aggiorna" class="right"></form>';
 									echo '<p>Totale: &euro;' . $total . '</p>';
+									echo '<form id="purchase" action="purchase.php">';
+									echo '<p><p><input type="submit" value="Procedi all\'acquisto"></form>';
 
 								}
 							}
-							/*
-							 *
-							 $query = ('SELECT * FROM prodotti');
-
-							 $connection = connect();
-							 $result = dbReaderQuery($query);
-
-							 $total = 0;
-							 echo '<table>';
-							 foreach ($result as $key => $value) {
-							 //extract($row);
-							 echo '<tr>';
-							 echo '<td><a href="cart.php?action=delete&id=' . $result['id'] . '" class="r">Remove</a></td>';
-							 echo '<td>' . $result['nome'] . '</td>';
-							 echo '<td>&pound;' . $result['prezzo'] . '</td>';
-							 echo '<td><input type="text" name="qty' . $result['id'] . '" value="' . $qty . '" size="3" maxlength="3" /></td>';
-							 echo '<td>&pound;' . ($result['prezzo'] * $qty) . '</td>';
-							 $total += $result['prezzo'] * $qty;
-							 echo '</tr>';
-							 }
-							 echo '</table>';
-							 echo '<p>Grand total: &pound;' . $total . '</p>';
-
-							 } else {
-							 echo "<p>Il tuo carrello è vuoto.</p>";
-							 }*/
-
-							//echo "<p>Contenuto carrello: " . $cart;
 							?>
 						</p>
 					</div><!-- #content-->
