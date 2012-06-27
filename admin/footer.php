@@ -10,14 +10,8 @@
 	</head>
 
 	<body>
-		<center>2012 - Copyright Giovanni Dini - Progetto di Linguaggi e Applicazioni Multimediali
-		<?php
-		// Controlliamo se l'utente è admin - Se lo è diamogli la possibilità di connettersi al
-		// pannello di controllo
-		if($_SESSION['admin'] == 1){
-			echo ' | <strong><a href="admin/admin.php"> Pannello di controllo amministratore</a>';
-		}
-		?>
+		<center>
+			2012 - Copyright Giovanni Dini - Progetto di Linguaggi e Applicazioni Multimediali | <strong><a href="../index.php"> Torna alla home page</a>
 		</center>
 	</body>
 </html>

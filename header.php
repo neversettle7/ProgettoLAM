@@ -11,6 +11,7 @@
 	<?php session_start(); ?>
 	<body>
 		<img src='include/ecomLOGO.png' align="top-left">
+		<div id="header-content">
 		<?php
 		if ($_SESSION['login'] == 1) {
 			echo 'Benvenuto/a <a href="account.php">' . $_SESSION['username'] . '</a>';
@@ -19,5 +20,6 @@
 			echo 'Benvenuto/a! Fai <a href="login.php">login</a> o <a href="register.php">registrati</a>.';
 		}
 		?>
+		</div>
 	</body>
 </html>

@@ -16,7 +16,20 @@
 			<!--<section id="middle">-->
 			<div id="container">
 				<div id="content">
-					Questa è la home dell'admin.
+					Questo è il pannello di controllo. Da qui potrete raggiungere le seguenti pagine:
+					<ul>
+						<li>
+							<a href="product-list.php" title="Chi siamo">Gestione prodotti</a>
+						</li>
+						<li>
+							<a href="category-list.php" title="Servizi">Gestione categorie</a>
+						</li>
+						<li>
+							<a href="user-list.php" title="Catalogo">Gestione utenti</a>
+						</li>
+						<li>
+							<a href="../index.php" title="Home">Home page</a>
+					</ul>
 
 				</div>
 
