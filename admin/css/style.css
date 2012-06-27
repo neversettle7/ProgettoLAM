@@ -61,6 +61,10 @@ aside {
 	border-radius: 5px;
 }
 
+#header-content {
+	text-align: center;
+}
+
 #leftcolumn {
 	width: 200px;
 	float: left;

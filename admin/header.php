@@ -13,7 +13,7 @@
 
 	<body>
 
-		<div>
+		<div id="header-content">
 			<h1>Pannello di controllo</h1>
 		</div>
 

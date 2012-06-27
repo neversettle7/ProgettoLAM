@@ -42,7 +42,21 @@
 						</p>
 						<p></p>
 						<p>
-							Tutto il codice sviluppato è open source e i vari commit sono disponibili su <a href="https://github.com/gioggi2002/ProgettoLAM/">GitHub.</a>
+							Tutti i vari commit del codice sviluppato sono disponibili su <a href="https://github.com/gioggi2002/ProgettoLAM/">GitHub.</a>
+						</p>
+						<p>
+							<center>
+								<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Licenza Creative Commons" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a>
+							</center>
+							<br />
+							Quest'opera è distribuita con <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">licenza Creative Commons 3.0</a> a queste condizioni:
+							<br>
+							- Attribuzione del lavoro al suo autore
+							<br>
+							- Non utilizzabile per fini commerciali
+							<br>
+							- Condivisione permessa solo con lo stesso tipo di licenza.
+							<br>
 						</p>
 					</div><!-- #content-->
 				</div><!-- #container-->
