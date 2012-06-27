@@ -61,7 +61,7 @@
 							switch($action) {
 								case 'add' :
 									// Istruzioni per l'aggiunta di prodotti al carrello
-									echo "<p>Aggiungo il prodotto " . $id . " al carrello.";
+									// Check - echo "<p>Aggiungo il prodotto " . $id . " al carrello.";
 									if (($cart)) {
 										$newcart = $cart . ',' . $id;
 										$cart = $newcart;

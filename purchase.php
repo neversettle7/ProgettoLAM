@@ -123,9 +123,8 @@ checklogin($_SESSION['login']);
 							/*$query_add = ("INSERT INTO vendite (idutente, idprodotto, totale) VALUES ('$idutente', '$idprodotto', '$total')");
 							 print_r($query_add);
 							 connect($query_add);*/
-
-							echo '<p>Sei arrivato a questa pagina per sbaglio? Torna alla <a href="index.php">home</a>.';
 							?>
+							<p>Torna alla <a href="index.php">Home</a> o al <a href="catalog.php">catalogo</a> per continuare gli acquisti!</p>
 						</p>
 					</div><!-- #content-->
 				</div><!-- #container-->
