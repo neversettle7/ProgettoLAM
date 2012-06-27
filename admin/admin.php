@@ -5,7 +5,6 @@ session_start();
 include_once ('../include/functions.php');
 
 adminlogin($_SESSION['admin']);
-
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -34,6 +33,9 @@ adminlogin($_SESSION['admin']);
 						</li>
 						<li>
 							<a href="user-list.php" title="Catalogo">Gestione utenti</a>
+						</li>
+						<li>
+							<a href="sales-list.php" title="Catalogo">Gestione vendite</a>
 						</li>
 						<li>
 							<a href="../index.php" title="Home">Home page</a>

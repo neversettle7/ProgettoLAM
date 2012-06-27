@@ -23,6 +23,9 @@
 					<a href="user-list.php" title="Catalogo">Gestione utenti</a>
 				</li>
 				<li>
+					<a href="sales-list.php" title="Catalogo">Gestione vendite</a>
+				</li>
+				<li>
 					<a href="../index.php" title="Home">Home page</a>
 				</li>
 			</ul>
