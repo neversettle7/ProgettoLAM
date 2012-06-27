@@ -113,6 +113,7 @@ checklogin($_SESSION['login']);
 									else {
 										echo "<p>Spiacenti, il prodotto " . $result[$i]['nome'] . " non è disponibile nella quantità desiderata.";
 										echo "Sono disponibili solo " . $result[$i]['quantita'] . " del prodotto desiderato.";
+										echo "<p><strong>Transazione annullata!</strong></p>";
 									}
 								}
 								echo '</table>';

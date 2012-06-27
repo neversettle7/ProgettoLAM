@@ -39,7 +39,7 @@
 
 							include_once ("include/functions.php");
 
-							if (empty($_SESSION['cart'])) {
+							if (!$_SESSION['cart']) {
 								echo "<p>Il tuo carrello è vuoto. </p>";
 								echo 'Ricordati di effettuare il <a href="login.php">login</a>!';
 							}
@@ -73,7 +73,7 @@
 
 								case 'remove' :
 									// Istruzioni per la rimozione di un prodotto dal carrello
-									echo "<p>Rimuovo il prodotto " . $id . " dal carrello.";
+									// Check - echo "<p>Rimuovo il prodotto " . $id . " dal carrello.";
 									if ($cart) {
 										// Esplodiamo il carrello per separare gli elementi
 										$items = explode(',', $cart);
