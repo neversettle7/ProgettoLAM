@@ -4,7 +4,6 @@
  * LIBRERIA CONTENENTE LE FUNZIONI ESTERNE UTILIZZABILI
  */
 
- 
 // Questa funzione serve per connettersi al db e effettuare operazioni
 
 function connect($query) {
@@ -83,9 +82,34 @@ function findext($nomefile) {
 	return $ext;
 }
 
+// Questa funzione serve per controllare i permessi di amministratore ed evitare
+// l'accesso alle pagine del backend a chi non è loggato come amministratore
+
+function adminlogin($admin) {
+	if ($admin != 1) {
+		$domain = $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
+		$domainA = @explode("/", $domain);
+		// Check - print_r($domainA);
+		//$i = count($domainA);
+		for ($j = 0, $i = count($domainA); $j < ($i - 1); $j++) {
+			if ($j == 0) {
+				$domainB = $domainA[$j];
+			} else {
+				$domainB = $domainB . '/' . $domainA[$j];
+			}
+		}
+		$domainB = $domainB . '/';
+		// Check - echo '<p>' . $domainB;
+		//header("Location: $domainB/login.php");
+		header("Location: login.php");
+		return;
+	}
+}
+
 /*
- * Le funzioni elencate qui di seguito servono per la gestione del carrello
- *
+ * La funzione elencata qui di seguito serve per la gestione del carrello
+ * ATTENZIONE: la funzione non è più usata ma è stata lasciata qui
+ * per comodità e per un possibile riutilizzo
  */
 
 function writeShoppingCart() {
