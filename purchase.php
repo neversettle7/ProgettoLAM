@@ -1,5 +1,12 @@
-<?php session_start(); ?>
+<?php
 
+session_start();
+
+include_once ('include/functions.php');
+
+checklogin($_SESSION['login']);
+
+?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
@@ -30,6 +37,9 @@
 
 				<div id="container">
 					<div id="content">
+						<p>
+							<h1>Grazie! Hai acquistato:</h1>
+						</p>
 						<p>
 							<?php
 

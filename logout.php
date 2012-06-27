@@ -4,7 +4,6 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<title>Logout</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css" media="all">
-		<script type="text/javascript" src="view.js"></script>
 	</head>
 	<body id="main_body" >
 		<div id="wrapper">
@@ -26,13 +25,19 @@
 						session_destroy();
 						session_start();
 						?>
-						
-						<p>Logout effettuato con successo.</p>
+
+						<p>
+							Logout effettuato con successo.
+						</p>
 						<p></p>
-						<p>Torna presto a trovarci!</p>
+						<p>
+							Torna presto a trovarci!
+						</p>
 						<p></p>
-						<p><a href="index.php">Home</a></p>
-						
+						<p>
+							<a href="index.php">Home</a>
+						</p>
+
 					</div>
 				</div>
 

@@ -86,7 +86,15 @@ function findext($nomefile) {
 // l'accesso alle pagine del backend a chi non è loggato come amministratore
 
 function adminlogin($admin) {
+	// Se l'utente non è amministratore
 	if ($admin != 1) {
+		/*
+		 * Questi vecchi controlli servivano a far raggiungere specifiche pagine
+		 * ottenendo l'indirizzo attuale (dominio + path).
+		 * Si è deciso di ottenere una via più breve con una generica pagina di login
+		 * anche nel backend che rimanda al controllo per il login nel frontend.
+		 * Per tornare al backend è sufficiente usare i collegamenti presenti nel frontend.
+		 * 
 		$domain = $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
 		$domainA = @explode("/", $domain);
 		// Check - print_r($domainA);
@@ -100,7 +108,14 @@ function adminlogin($admin) {
 		}
 		$domainB = $domainB . '/';
 		// Check - echo '<p>' . $domainB;
-		//header("Location: $domainB/login.php");
+		//header("Location: $domainB/login.php");*/
+		header("Location: login.php");
+		return;
+	}
+}
+
+function checklogin($login) {
+	if ($login != 1) {
 		header("Location: login.php");
 		return;
 	}

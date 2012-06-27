@@ -1,3 +1,12 @@
+<?php
+
+session_start();
+
+include_once ('../include/functions.php');
+
+adminlogin($_SESSION['admin']);
+
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
@@ -21,7 +30,7 @@
 					
 <p>Nome: <?php echo $_POST['nome']; ?></p>
 <p>Descrizione: <?php echo $_POST['descrizione']; ?></p>
-<p>Quantit√†: <?php echo $_POST['quantita']; ?></p>
+<p>Quantit‡†: <?php echo $_POST['quantita']; ?></p>
 <p>Prezzo: <?php echo $_POST['prezzo']; ?></p>
 <p>Categoria: <?php echo $_POST['categoria']; ?></p>
 <p>File: <?php echo $_FILES['photo']['name']; ?></p>
@@ -49,7 +58,7 @@ $photo = ($_FILES['photo']['name']);
 // Richiamiamo la funzione che separa il nome del file dalla sua estensione
 
 $ext = findext($_FILES['photo']['name']);
-echo "<p>Estensione del file = " . $ext;
+// Check -echo "<p>Estensione del file = " . $ext;
 
 // Assegniamo un nome casuale all'immagine caricata, in modo da evitare che
 // immagini uploadate con lo stesso nome vengano sovrascritte
@@ -65,7 +74,7 @@ $target = $target . $b . $ext;
 // Query di inserimento del prodotto e delle sue informazioni
 
 $query = ("INSERT INTO prodotti (nome, descrizione, quantita, prezzo, categoria, image) VALUES ('$nome', '$descrizione', '$quantita', '$prezzo', '$categoria', '$nomefile')");
-echo "<p>Fine script.</p>";
+// Check - echo "<p>Fine script.</p>";
 
 // Ci connettiamo al database ed eseguiamo la query
 
@@ -73,8 +82,8 @@ echo "<p>Fine script.</p>";
 // positivo trasferiamo sul server il file che √® stato uploadato e verifichiamo
 // che l'upload abbia avuto successo
 
-echo "<p>Tipo di file caricato: " . $_FILES['photo']['type'];
-echo "<p>Dimensione file caricato: " . $_FILES['photo']['size'];
+// Check - echo "<p>Tipo di file caricato: " . $_FILES['photo']['type'];
+// Check - echo "<p>Dimensione file caricato: " . $_FILES['photo']['size'];
 
 if (($_FILES['photo']['type'] == "image/png") || ($_FILES['photo']['type'] == "image/jpg") || ($_FILES['photo']['type'] == "image/jpeg") || ($_FILES['photo']['type'] == "image/gif") && ($_FILES['photo']['size'] < 3500000)) {
 	if (move_uploaded_file($_FILES['photo']['tmp_name'], $target)) {
@@ -86,13 +95,13 @@ if (($_FILES['photo']['type'] == "image/png") || ($_FILES['photo']['type'] == "i
 		echo "<p>Il file - " . $b . $ext . " - e' stato caricato correttamente.";
 	} else {
 		// Risposta negativa se l'upload non ha avuto successo
-		echo "<p>Il file non √® stato caricato correttamente.";
+		echo "<p>Il file non Ë stato caricato correttamente.";
 	}
 } else {
 	echo "<p>Puoi caricare solo file con estensione .jpg o .png di dimensione inferiore ai 3500kB.";
 }
 ?>
-
+<p>Torna alla pagina di <a href="product-list.php">gestione dei prodotti.</a></p>
 </div>
 
 				<aside id="leftcolumn">

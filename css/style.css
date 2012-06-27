@@ -72,6 +72,8 @@ input {
 }
 #product-images {
 	float: right;
+	max-width: 250px;
+	max-height: 250px;
 }
 #table-column {
 	width: 350px;

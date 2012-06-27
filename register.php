@@ -4,7 +4,6 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<title>Registrati</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css" media="all">
-		<script type="text/javascript" src="view.js"></script>
 	</head>
 	<body id="main_body" >
 		<div id="wrapper">

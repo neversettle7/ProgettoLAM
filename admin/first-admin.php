@@ -1,12 +1,3 @@
-<?php
-
-session_start();
-
-include_once ('../include/functions.php');
-
-adminlogin($_SESSION['admin']);
-
-?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
@@ -25,7 +16,7 @@ adminlogin($_SESSION['admin']);
 			<div id="container">
 				<div id="content">
 
-					<form id="register" method="post" action="admin-registration-result.php">
+					<form id="register" method="post" action="first-admin-registration-result.php">
 						<h2>Inserisci un admin</h2>
 						<p>
 							Compila tutti i campi della pagina inserire un admin.

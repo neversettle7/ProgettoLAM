@@ -5,7 +5,7 @@
 	<head>
 		<meta charset="ISO-8859-1" />
 		<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-		<title></title>
+		<title>ecom - eCommerce CMS template</title>
 		<meta name="keywords" content="" />
 		<meta name="description" content="" />
 		<link rel="stylesheet" href="../css/style.css" type="text/css" media="screen, projection" />
@@ -30,9 +30,19 @@
 
 				<div id="container">
 					<div id="content">
-						<strong>Content:</strong>
+
+						<h1>ecom</h1>
+						<br>
+
 						<p>
-							Tante belle cose.
+							ecom è un CMS per l'eCommerce.
+						</p>
+						<p>
+							Progettato e sviluppato interamente da Giovanni Dini (mat. 232274) per l'esame di <a href="http://www.mauriziomaffi.it/">Linguaggi e Applicazioni Multimediali.</a>
+						</p>
+						<p></p>
+						<p>
+							Tutto il codice sviluppato è open source e i vari commit sono disponibili su <a href="https://github.com/gioggi2002/ProgettoLAM/">GitHub.</a>
 						</p>
 					</div><!-- #content-->
 				</div><!-- #container-->

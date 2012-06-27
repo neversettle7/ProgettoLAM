@@ -31,6 +31,9 @@
 				<div id="container">
 					<div id="content">
 						<p>
+							<h1>Il tuo carrello contiene:</h1>
+						</p>
+						<p>
 							<!-- Porzione di codice relativa alla visualizzazione del cart -->
 							<?
 

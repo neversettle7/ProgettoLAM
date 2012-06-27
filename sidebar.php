@@ -28,6 +28,11 @@
 					<a href="contact.php" title="Contattaci">Contattaci</a>
 				</li>
 				<?php
+					if ($_SESSION['login'] == 1) {
+						echo '<li> <a href="account.php" title="Modifica account">Modifica il tuo account</a></li>';
+					}
+				?>
+				<?php
 					if ($_SESSION['admin'] == 1) {
 						echo '<li> <a href="admin/admin.php" title="Pannello di controllo">Pannello di controllo admin</a></li>';
 					}
