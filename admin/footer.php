@@ -11,7 +11,7 @@
 
 	<body>
 		<center>
-			2012 - Copyright Giovanni Dini - Progetto di Linguaggi e Applicazioni Multimediali | <strong><a href="../index.php"> Torna alla home page</a>
+			2012 - Copyright <a href="http://www.giovannidini.com">Giovanni Dini</a> - Progetto di Linguaggi e Applicazioni Multimediali | <strong><a href="../index.php"> Torna alla home page</a>
 		</center>
 	</body>
 </html>

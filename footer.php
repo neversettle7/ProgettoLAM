@@ -10,7 +10,7 @@
 	</head>
 
 	<body>
-		<center>2012 - Copyright Giovanni Dini - Progetto di Linguaggi e Applicazioni Multimediali
+		<center>2012 - Copyright <a href="http://www.giovannidini.com">Giovanni Dini</a> - Progetto di Linguaggi e Applicazioni Multimediali
 		<?php
 		// Controlliamo se l'utente è admin - Se lo è diamogli la possibilità di connettersi al
 		// pannello di controllo
