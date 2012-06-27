@@ -1,4 +1,4 @@
-#menu {
+#sidemenu {
 	width: 100%;
 	border-style: solid solid none solid;
 	border-color: #C0C0C0;
@@ -7,31 +7,31 @@
 	background-color:#87E0FD;
 }
 
-#menu li a {
+#sidemenu li a {
 	height: 32px;
 	height: 24px;
 	text-decoration: none;
 }
 
-#menu li a:link, #menu li a:visited {
+#sidemenu li a:link, #menu li a:visited {
 	color: #5E7830;
 	display: block;
 	background: url(../css/images/menu1.gif);
 	padding: 8px 0 0 10px;
 }
 
-#menu li a:hover {
+#sidemenu li a:hover {
 	color: #26370A;
 	background: url(../css/images/menu1.gif) 0 -32px;
 	padding: 8px 0 0 10px;
 }
 
-#menu li a:active {
+#sidemenu li a:active {
 	color: #26370A;
 	background: url(../css/images/menu1.gif) 0 -64px;
 	padding: 8px 0 0 10px;
 }
-#menu ul {
+#sidemenu ul {
 	list-style: none;
 	margin: 0;
 	padding: 0;

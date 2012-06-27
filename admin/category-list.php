@@ -2,9 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-		<title>Registrati</title>
+		<title>Lista delle categorie</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css" media="all">
-		<script type="text/javascript" src="view.js"></script>
 	</head>
 	<body id="main_body" >
 		<div id="wrapper">
@@ -13,66 +12,68 @@
 				include ("header.php");
 				?>
 			</div>
-			<!--<section id="middle">
-			<div id="container">!-->
-			<div id="content">
+			<!--<section id="middle">-->
+			<div id="container">
+				<div id="content">
 
-				<?php
+					<?php
 
-				include_once ("../include/functions.php");
-				
-				echo '<p><a href="category-insert.php">';
-				echo '<strong>Crea una nuova categoria</strong>';
-				echo '</a><p></p></p>';
+					include_once ("../include/functions.php");
 
-				/*
-				 * Codice per visualizzare una particolare categoria
-				 * Troviamo il nome della categoria partendo dal solo id
-				 * che era contenuto nella variabile GET dell'URL
-				 */
-				 
-				 echo "<p><strong>Elenco delle categorie:</strong></p>";
+					echo '<p><a href="category-insert.php">';
+					echo '<strong>Crea una nuova categoria</strong>';
+					echo '</a><p></p></p>';
 
-				$connection = connect();
-				$result = dbReaderQuery($query_cat);
+					/*
+					 * Codice per visualizzare una particolare categoria
+					 * Troviamo il nome della categoria partendo dal solo id
+					 * che era contenuto nella variabile GET dell'URL
+					 */
 
-				// Codice per visualizzare la lista delle categorie da cui scegliere
-				$query = ("SELECT * FROM categorie");
+					echo "<p><strong>Elenco delle categorie:</strong></p>";
 
-				$connection = connect();
-				$result = dbReaderQuery($query);
+					$connection = connect();
+					$result = dbReaderQuery($query_cat);
 
-				foreach ($result as $key => $value) {
-					if ($j == 0) {
-						echo '<table border="1" id="cart-table" bordercolor="#999999" style=" background-color: transparent" cellpadding="2" cellspacing="2" width="700">';
-						echo '<tr>';
-						echo '<td><div id="table-column">';
-						echo '<strong>Nome</strong></td>';
-						echo '<td><strong>Descrizione:</strong></td>';
-						echo '</tr>';
-					}
-					$j++;
-					echo "<tr>";
-					echo '<td><div id="table-column"';
-					echo "<p><strong>";
-					echo $value['nome'];
-					echo "</strong></td>";
-					echo "<td><small>" . $value['descrizione'] . "</small></td>";
-					echo '<td><a href="category-edit.php?id=' . $value['id'] . '">Modifica</a>';
-					echo '<td><a href="category-delete.php?id=' . $value['id'] . '">Cancella</a>';
-					echo "</td>";
-					echo "</tr>";
+					// Codice per visualizzare la lista delle categorie da cui scegliere
+					$query = ("SELECT * FROM categorie");
 
-				} echo "</table>";
+					$connection = connect();
+					$result = dbReaderQuery($query);
+
+					foreach ($result as $key => $value) {
+						if ($j == 0) {
+							echo '<table border="1" id="cart-table" bordercolor="#999999" style=" background-color: transparent" cellpadding="2" cellspacing="2" width="700">';
+							echo '<tr>';
+							echo '<td><div id="table-column">';
+							echo '<strong>Nome</strong></td>';
+							echo '<td><strong>Descrizione:</strong></td>';
+							echo '</tr>';
+						}
+						$j++;
+						echo "<tr>";
+						echo '<td><div id="table-column"';
+						echo "<p><strong>";
+						echo $value['nome'];
+						echo "</strong></td>";
+						echo "<td><small>" . $value['descrizione'] . "</small></td>";
+						echo '<td><a href="category-edit.php?id=' . $value['id'] . '">Modifica</a>';
+						echo '<td><a href="category-delete.php?id=' . $value['id'] . '">Cancella</a>';
+						echo "</td>";
+						echo "</tr>";
+
+					} echo "</table>";
 				?>
-			</div>
-
-			<aside id="leftcolumn">
-				<?
-				include ("admin-sidebar.php");
-				?>
-				</aside><!-- #sideLeft -->
-
+				</div>
+				<aside id="leftcolumn">
+					<?
+					include ("admin-sidebar.php");
+					?>
+					</aside><!-- #sideLeft -->
+					<div style="clear: both">
+						&nbsp;
+					</div>
+				</div>
 				<!--</section>!-->
 				<div id="footer">
 					<?

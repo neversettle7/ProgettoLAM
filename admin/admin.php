@@ -13,19 +13,22 @@
 				include ("header.php");
 				?>
 			</div>
-			<!--<section id="middle">
-			<div id="container">!-->
-			<div id="content">
-				Questa è la home dell'admin.
-				
+			<!--<section id="middle">-->
+			<div id="container">
+				<div id="content">
+					Questa è la home dell'admin.
+
+				</div>
+
+				<aside id="leftcolumn">
+					<?
+					include ("admin-sidebar.php");
+					?>
+				</aside><!-- #sideLeft -->
+				<div style="clear: both">
+					&nbsp;
+				</div>
 			</div>
-
-			<aside id="leftcolumn">
-				<?
-				include ("admin-sidebar.php");
-				?>
-			</aside><!-- #sideLeft -->
-
 			<!--</section>!-->
 			<div id="footer">
 				<?

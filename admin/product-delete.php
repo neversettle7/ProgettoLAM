@@ -2,9 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-		<title>Registrati</title>
+		<title>Cancella prodotto</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css" media="all">
-		<script type="text/javascript" src="view.js"></script>
 	</head>
 	<body id="main_body" >
 		<div id="wrapper">
@@ -13,33 +12,36 @@
 				include ("header.php");
 				?>
 			</div>
-			<!--<section id="middle">
-			<div id="container">!-->
-			<div id="content">
-				<?php
-				
-				include_once ("../include/functions.php");
-				
-				$id = $_GET['id'];
-				
-				if($id){
-				echo "<p>Prodotto cancellato.</p>";
-				
-				$query = ("DELETE FROM prodotti WHERE id='$id'");
-				// Check - print_r($query);
-				$connection = connect($query);
-				}
-				else echo "Operazione non valida, l'id del prodotto non è stato specificato.";
-				?>
+			<!--<section id="middle">-->
+			<div id="container">
+				<div id="content">
+
+					<?php
+
+					include_once ("../include/functions.php");
+
+					$id = $_GET['id'];
+
+					if ($id) {
+						echo "<p>Prodotto cancellato.</p>";
+
+						$query = ("DELETE FROM prodotti WHERE id='$id'");
+						// Check - print_r($query);
+						$connection = connect($query);
+					} else
+						echo "Operazione non valida, l'id del prodotto non è stato specificato.";
+					?>
+				</div>
+
+				<aside id="leftcolumn">
+					<?
+					include ("admin-sidebar.php");
+					?>
+				</aside><!-- #sideLeft -->
+				<div style="clear: both">
+					&nbsp;
+				</div>
 			</div>
-			<!--</div>!-->
-
-			<aside id="leftcolumn">
-				<?
-				include ("admin-sidebar.php");
-				?>
-			</aside><!-- #sideLeft -->
-
 			<!--</section>!-->
 			<div id="footer">
 				<?

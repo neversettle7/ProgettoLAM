@@ -6,14 +6,14 @@
 		<title></title>
 		<meta name="keywords" content="" />
 		<meta name="description" content="" />
-		<link rel="stylesheet" href="css/sidebarmenu.css" type="text/css" media="screen, projection" />
+		<link rel="stylesheet" href="css/style.css" type="text/css" media="screen, projection" />
 	</head>
 
 	<body>
-		<div id="menu">
+		<div id="sidemenu">
 			<ul>
 				<li>
-					<a href="admin.php" title="Home">Admin home</a>
+					<a href="admin.php" title="Home admin">Admin home</a>
 				</li>
 				<li>
 					<a href="product-list.php" title="Chi siamo">Gestione prodotti</a>
@@ -23,6 +23,9 @@
 				</li>
 				<li>
 					<a href="user-list.php" title="Catalogo">Gestione utenti</a>
+				</li>
+				<li>
+					<a href="../index.php" title="Home">Home page</a>
 				</li>
 			</ul>
 		</div>

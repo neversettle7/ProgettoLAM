@@ -1,5 +1,3 @@
-<?php session_start(); ?>
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
@@ -12,10 +10,14 @@
 	</head>
 
 	<body>
-
-		<div>
-			<h1>Pannello di controllo</h1>
-		</div>
-
+		<center>2012 - Copyright Giovanni Dini - Progetto di Linguaggi e Applicazioni Multimediali
+		<?php
+		// Controlliamo se l'utente è admin - Se lo è diamogli la possibilità di connettersi al
+		// pannello di controllo
+		if($_SESSION['admin'] == 1){
+			echo ' | <strong><a href="admin/admin.php"> Pannello di controllo amministratore</a>';
+		}
+		?>
+		</center>
 	</body>
 </html>

@@ -1,49 +1,86 @@
-/* Script per la modifica dei prodotti nel database */
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Modifica prodotto</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css" media="all">
+		<script type="text/javascript" src="view.js"></script>
+	</head>
+	<body id="main_body" >
+		<div id="wrapper">
+			<div id="header">
+				<?
+				include ("header.php");
+				?>
+			</div>
+			<!--<section id="middle">-->
+			<div id="container">
+				<div id="content">
+					<p>
+						<strong>Riepilogo delle informazioni inserite:</strong>
+					</p>
+					<p>
+						Nome: <?php echo $_POST['nome']; ?>
+					</p>
+					<p>
+						Descrizione: <?php echo $_POST['descrizione']; ?>
+					</p>
+					<p>
+						Quantità: <?php echo $_POST['quantita']; ?>
+					</p>
+					<p>
+						Prezzo: <?php echo $_POST['prezzo']; ?>
+					</p>
+					<p>
+						Categoria: <?php echo $_POST['categoria']; ?>
+					</p>
+					<p>
+						Id: <?php echo $_GET['id']; ?>
+					</p>
 
-<!-- Verifichiamo che i dati inviati dalla pagina insert-product.php siano ricevuti correttamente -->
+					<?php
 
-<p>
-	Nome: <?php echo $_POST['nome']; ?>
-</p>
-<p>
-	Descrizione: <?php echo $_POST['descrizione']; ?>
-</p>
-<p>
-	Quantità: <?php echo $_POST['quantita']; ?>
-</p>
-<p>
-	Prezzo: <?php echo $_POST['prezzo']; ?>
-</p>
-<p>
-	Categoria: <?php echo $_POST['categoria']; ?>
-</p>
-<p>
-	Id: <?php echo $_GET['id'] ?>
-</p>
+					include_once '../include/functions.php';
 
-<?php
+					$id = $_GET['id'];
 
-include_once '../include/functions.php';
+					if (isset($id)) {
 
-$id = $_GET['id'];
+						// Assegniamo i valori alle variabili php per preprarare l'inserimento nel db
 
-if (isset($id)) {
+						$nome = $_POST['nome'];
+						$descrizione = $_POST['descrizione'];
+						$quantita = $_POST['quantita'];
+						$prezzo = $_POST['prezzo'];
+						$categoria = $_POST['categoria'];
 
-	// Assegniamo i valori alle variabili php per preprarare l'inserimento nel db
+						// Query di inserimento del prodotto e delle sue informazioni
 
-	$nome = $_POST['nome'];
-	$descrizione = $_POST['descrizione'];
-	$quantita = $_POST['quantita'];
-	$prezzo = $_POST['prezzo'];
-	$categoria = $_POST['categoria'];
+						$query = ("UPDATE prodotti SET nome='$nome', descrizione='$descrizione', quantita='$quantita', prezzo='$prezzo', categoria='$categoria' WHERE id='$id'");
+						echo $query;
+						$connection = connect($query);
 
-	// Query di inserimento del prodotto e delle sue informazioni
+					} else {
+						echo "Nessun prodotto da modificare. Errore.";
+					}
+				?>
+</div>
 
-	$query = ("UPDATE prodotti SET nome='$nome', descrizione='$descrizione', quantita='$quantita', prezzo='$prezzo', categoria='$categoria' WHERE id='$id'");
-	echo $query;
-	$connection = connect($query);
-
-} else {
-	echo "Nessun prodotto da modificare. Errore.";
-}
+<aside id="leftcolumn">
+<?
+include ("admin-sidebar.php");
 ?>
+</aside><!-- #sideLeft -->
+<div style="clear: both">
+&nbsp;
+</div>
+</div>
+<!--</section>!-->
+<div id="footer">
+<?
+include ("footer.php");
+					?>
+				</div>
+			</div>
+	</body>
+</html>
