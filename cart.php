@@ -140,7 +140,7 @@
 
 							if ($cart) {
 								// Esplodiamo l'array per avere un array $contents con elementi singoli
-								// magari presenti in quantit√† maggiori di 1 ed evitare duplicati
+								// magari presenti in quantit‡ maggiori di 1 ed evitare duplicati
 								$cart = $_SESSION['cart'];
 								if ($cart) {
 									$items = explode(',', $cart);
